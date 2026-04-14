@@ -148,12 +148,7 @@ public class TimeConvertForm {
         int rawOffset = tz.getRawOffset();
         int hours = rawOffset / 3600000;
         int minutes = Math.abs((rawOffset % 3600000) / 60000);
-        String offsetStr;
-        if (minutes == 0) {
-            offsetStr = String.format("GMT %+d", hours);
-        } else {
-            offsetStr = String.format("GMT %+d:%02d", hours, minutes);
-        }
+        String offsetStr = String.format("GMT%+03d:%02d", hours, minutes);
         if (gmtLabel != null) {
             gmtLabel.setText("时间(" + offsetStr + ")");
         }
